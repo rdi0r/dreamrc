@@ -1,0 +1,4 @@
+all:
+  active_days:  30
+  max_jobs_on_homepage: 3
+  max_jobs_on_category: 5

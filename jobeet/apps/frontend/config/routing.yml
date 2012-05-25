@@ -1,0 +1,27 @@
+job:
+  class: sfPropelRouteCollection
+  options: { model: JobeetJob, column: token}
+  requirements: { token: \w+}
+
+homepage:
+  url:   /
+  param: { module: job, action: index }
+
+job_show_user:
+#  url : /job/:company_slug/:location_slug/:id/:position_slug
+  url: /:module/:action/id/:id/
+#:company_slug/:location/:id/:position_slug  
+#  url : /job/:company_slug/:location_slug/:id/:position_slug
+  class: sfPropelRoute
+  options: {model: JobeetJob, type: object}
+  param: {module: job, action: show }
+  requirements:
+    id: \d+
+    sf_method: [get]
+
+
+category:
+  url: /category/:slug
+  class: sfPropelRoute
+  param: {module: category, action: show}
+  options: {model: JobeetCategory, type: object}
